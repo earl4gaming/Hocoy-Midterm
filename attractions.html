@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractions in Puerto Princesa</title>
+    <link rel="stylesheet" href="css/attractions.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="slider-container">
+            <h1>Top Attractions in Puerto Princesa</h1>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-name="Puerto Princesa Underground River" data-description="A UNESCO World Heritage Site and one of the New 7 Wonders of Nature.">
+                        <img src="https://undergroundriver.puertoprincesa.ph/sites/default/files/image/1352094028xgMeB8jg.jpg" alt="Puerto Princesa Underground River">
+                    </div>
+                    <div class="carousel-item" data-name="Honda Bay" data-description="A paradise for island hopping and snorkeling adventures.">
+                        <img src="https://cdn.forevervacation.com/uploads/attraction/honda-bay-2753.jpg" alt="Honda Bay">
+                    </div>
+                    <div class="carousel-item" data-name="Firefly Watching" data-description="Experience the magical glow of fireflies along the mangroves.">
+                        <img src="https://trippytraveltours.com/wp-content/uploads/2023/01/Firefly-Watching-1024x675-1.jpg" alt="Firefly Watching">
+                    </div>
+                    <div class="carousel-item" data-name="Baker's Hill" data-description="A family-friendly attraction with sweet treats and beautiful gardens.">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtC62jQFnaSKryS4qMmZCEwTy7lobQQTt2jQ&s" alt="Baker's Hill">
+                    </div>
+                    <div class="carousel-item" data-name="Ugong Rock" data-description="A limestone formation perfect for climbing and ziplining.">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnSeEr287m27FZFJz9UUZ0y1uvwxBlFMnZkgDQN8p_f3VPciI_1_m5K_V10lMZ9-rKXilOG1uex5WXfMh7FmivK6L26i_P8qQY1RJIsXaa2PgPANdx9Dq3zv6VaeVA7c81JmCDE7R0pU0/s1600/Ugong+Rock+Adventures_018.JPG" alt="Ugong Rock">
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button class="prev" onclick="rotateCarousel(-1)">❮</button>
+                <button class="next" onclick="rotateCarousel(1)">❯</button>
+            </div>
+            <div class="caption">
+                <h2 id="attraction-name">Puerto Princesa Underground River</h2>
+                <p id="attraction-description">A UNESCO World Heritage Site and one of the New 7 Wonders of Nature.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 HOCOY MIDTERM</p>
+    </footer>
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        let currentIndex = 2; // Tracks the current slide index (starts at the middle)
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        // Initialize the carousel
+        function initializeCarousel() {
+            items.forEach((item, index) => {
+                updateItemPosition(index);
+            });
+            updateCaption(); // Update caption for the active item
+        }
+
+        // Update the position of each item
+        function updateItemPosition(index) {
+            const offset = (index - currentIndex + totalItems) % totalItems;
+            if (offset === 0) {
+                // Middle image
+                items[index].style.transform = 'translateX(0) rotateY(0deg) scale(1)';
+                items[index].style.filter = 'blur(0px)';
+                items[index].style.opacity = '1';
+                items[index].style.zIndex = '2'; // Bring the middle image to the front
+                items[index].classList.add('active');
+            } else if (offset === 1 || offset === totalItems - 1) {
+                // Left and right images
+                const direction = offset === 1 ? -1 : 1;
+                items[index].style.transform = `translateX(${direction * 200}px) rotateY(${direction * 30}deg) scale(0.9)`;
+                items[index].style.filter = 'blur(5px)';
+                items[index].style.opacity = '0.7';
+                items[index].style.zIndex = '1'; // Keep the side images behind the middle image
+                items[index].classList.remove('active');
+            } else {
+                // Back image
+                items[index].style.transform = 'translateX(0) rotateY(0deg) scale(0.6)';
+                items[index].style.filter = 'blur(10px)';
+                items[index].style.opacity = '0.4';
+                items[index].style.zIndex = '0'; // Keep the back image further behind
+                items[index].classList.remove('active');
+            }
+        }
+
+        // Rotate the carousel
+        function rotateCarousel(direction) {
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+            items.forEach((item, index) => {
+                updateItemPosition(index);
+            });
+            updateCaption(); // Update caption for the active item
+        }
+
+        // Update the caption based on the active item
+        function updateCaption() {
+            const activeItem = document.querySelector('.carousel-item.active');
+            const attractionName = activeItem.getAttribute('data-name');
+            const attractionDescription = activeItem.getAttribute('data-description');
+            document.getElementById('attraction-name').textContent = attractionName;
+            document.getElementById('attraction-description').textContent = attractionDescription;
+        }
+
+        // Initialize the carousel on page load
+        window.onload = initializeCarousel;
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5DC; /* Beige background */
+    color: #333; /* Dark text color */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4CAF50; /* Green header background */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White text for navigation links */
+    font-weight: bold;
+}
+
+main {
+    flex: 1; /* Push footer to the bottom */
+    text-align: center;
+    padding: 20px;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.contact-container h1 {
+    color: #4CAF50; /* Green heading color */
+    margin-bottom: 20px;
+}
+
+.contact-container p {
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+}
+
+.promotion {
+    background-color: #e9e6c4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.promotion h2 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.promotion ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.promotion .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #3e8e41; /* Darker green on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #87CEEB; /* Sky-blue footer background */
+    color: #fff; /* White footer text */
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Stay at the bottom */
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .contact-form {
+        gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+    }
+}

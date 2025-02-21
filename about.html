@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Puerto Princesa</title>
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="about-container">
+            <h1>About Puerto Princesa</h1>
+            <div class="hero-section">
+                <img src="https://www.journeywonders.com/wp-content/uploads/2019/03/One-of-the-Private-Islands-at-Honda-Bay.jpg" alt="Puerto Princesa Image" class="hero-image">
+                <button class="discover-button" onclick="scrollToContent()">Discover More</button>
+            </div>
+            <div class="content-sections" id="content-sections">
+                <div class="section history">
+                    <i class="fas fa-book"></i>
+                    <h3>History</h3>
+                    <p class="short-description">Puerto Princesa has a rich history shaped by its indigenous communities...</p>
+                    <p class="full-description hidden">
+                        Puerto Princesa's history dates back to pre-colonial times when it was inhabited by indigenous tribes like the Tagbanwa and Batak. It became a Spanish settlement in 1872 and later developed into a thriving city known for its natural wonders. The city played a significant role during World War II and continues to preserve its cultural heritage while embracing modern development.
+                    </p>
+                    <button class="read-more" onclick="toggleDescription(this)">Read More</button>
+                </div>
+                <div class="section culture">
+                    <i class="fas fa-culture"></i>
+                    <h3>Culture</h3>
+                    <p class="short-description">The people of Puerto Princesa are warm and welcoming...</p>
+                    <p class="full-description hidden">
+                        Puerto Princesa's culture is deeply rooted in its indigenous traditions. Festivals like the Pista Y Ang Kagueban celebrate the unity of its diverse communities, while local crafts and cuisine showcase its unique heritage. The city is also home to vibrant art scenes and traditional music that reflect the creativity and resilience of its people.
+                    </p>
+                    <button class="read-more" onclick="toggleDescription(this)">Read More</button>
+                </div>
+                <div class="section stewardship">
+                    <i class="fas fa-tree"></i>
+                    <h3>Stewardship</h3>
+                    <p class="short-description">Puerto Princesa prioritizes environmental conservation...</p>
+                    <p class="full-description hidden">
+                        As a UNESCO World Heritage Site, Puerto Princesa is committed to preserving its natural resources. Initiatives like the Underground River protection program ensure sustainable tourism practices. The city actively promotes eco-friendly policies and community involvement in environmental preservation, making it a model for sustainable development worldwide.
+                    </p>
+                    <button class="read-more" onclick="toggleDescription(this)">Read More</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 HOCOY MIDTERM</p>
+    </footer>
+
+    <!-- JavaScript for Scrolling and Toggle Functionality -->
+    <script>
+        // Scroll to the content sections when "Discover More" is clicked
+        function scrollToContent() {
+            const contentSection = document.getElementById('content-sections');
+            contentSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle between short and full descriptions with smooth animation
+        function toggleDescription(button) {
+            const parentSection = button.parentElement;
+            const shortDesc = parentSection.querySelector('.short-description');
+            const fullDesc = parentSection.querySelector('.full-description');
+
+            if (fullDesc.classList.contains('hidden')) {
+                // Collapse short description and expand full description
+                shortDesc.style.height = '0';
+                shortDesc.classList.add('hidden');
+                fullDesc.classList.remove('hidden');
+                fullDesc.style.height = 'auto'; // Temporarily set to auto to calculate height
+                const fullHeight = fullDesc.scrollHeight + 'px'; // Get the actual height
+                fullDesc.style.height = '0'; // Reset height for animation
+                setTimeout(() => {
+                    fullDesc.style.height = fullHeight; // Animate to full height
+                }, 10);
+                button.textContent = 'Read Less';
+            } else {
+                // Collapse full description and expand short description
+                fullDesc.style.height = '0'; // Animate to collapse
+                setTimeout(() => {
+                    fullDesc.classList.add('hidden');
+                    shortDesc.classList.remove('hidden');
+                    shortDesc.style.height = 'auto'; // Reset height
+                }, 500); // Match the duration of the CSS transition
+                button.textContent = 'Read More';
+            }
+        }
+    </script>
+</body>
+</html>

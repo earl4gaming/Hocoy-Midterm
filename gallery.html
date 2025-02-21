@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Puerto Princesa</title>
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="attractions.html">Attractions</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="gallery-container">
+            <h1>Gallery</h1>
+            <!-- Book Structure -->
+            <div class="book">
+                <span class="cover back-cover"></span>
+                <span class="page" id="page1">
+                    <div class="collage">
+                        <img src="https://cdn.getyourguide.com/img/tour/5c6214a784ff8.jpeg/145.jpg" alt="Image 1" class="collage-img" style="--rotation: 5deg; --scale: 1.2;">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3qInMb03YPIOjg2bPB07K8yW8dz-jM6zrNFcoxkrrDt6lGgpNClIQvLwZnq1X6DFIhZ0baGGVx_Xe1g0XK4qFdP94i2K0d0YAHNMU8VB3nQNbSTKNMN3fR8Kqih8FEjeafCzxkglEabSg/s640/P1410310.JPG" alt="Image 2" class="collage-img" style="--rotation: -3deg; --scale: 0.9;">
+                    </div>
+                </span>
+                <span class="page" id="page2">
+                    <div class="collage">
+                        <img src="https://philippinesislandhopping.com/wp-content/uploads/2023/12/puerto-princesa-general-info-1500x999.jpg" alt="Image 3" class="collage-img" style="--rotation: 2deg; --scale: 1.1;">
+                        <img src="https://cdn.bookaway.com/media/files/5d5e9dcdf0a68defbef20476.jpeg?quality=50&width=2000" alt="Image 4" class="collage-img" style="--rotation: -5deg; --scale: 0.8;">
+                    </div>
+                </span>
+                <span class="page" id="page3">
+                    <div class="collage">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrI9CphlBZVkyWMuxhJcyKSz5CzkssK6pV-Q&s" alt="Image 5" class="collage-img" style="--rotation: 0deg; --scale: 1;">
+                        <img src="https://nationalparks-15bc7.kxcdn.com/images/parks/puerto-princesa-subterranean-river/Puerto%20Princesa%20Subterranean%20River%20%20front%20entrance.jpg" alt="Image 6" class="collage-img" style="--rotation: 3deg; --scale: 0.95;">
+                    </div>
+                </span>
+                <span class="cover front-cover"></span>
+            </div>
+            <!-- Navigation Arrows -->
+            <div class="controls">
+                <button class="prev" onclick="flipPage(-1)"><</button>
+                <button class="next" onclick="flipPage(1)">></button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 HOCOY MIDTERM</p>
+    </footer>
+
+    <!-- JavaScript for Page Navigation -->
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.page');
+        const totalPages = pages.length;
+
+        function flipPage(direction) {
+            // Remove the 'turn' class from all pages
+            pages.forEach(page => page.classList.remove('turn'));
+
+            // Update the current page index
+            currentPage = (currentPage + direction + totalPages) % totalPages;
+
+            // Add the 'turn' class to the current page
+            pages[currentPage].classList.add('turn');
+        }
+
+        // Initialize the gallery
+        window.onload = () => {
+            pages[currentPage].classList.add('turn'); // Set the first page as active
+        };
+    </script>
+</body>
+</html>

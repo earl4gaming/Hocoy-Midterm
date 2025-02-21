@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5DC; /* Beige background */
+    color: #333; /* Dark text color */
+}
+
+header {
+    background-color: #4CAF50; /* Green header background */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff; /* White text for navigation links */
+    font-weight: bold;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-container h1 {
+    color: #4CAF50; /* Green heading color */
+    margin-bottom: 20px;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-image {
+    width: 900px;
+    height: 400px;
+    object-fit: cover; /* Ensures the image fits perfectly without distortion */
+    margin: 0 auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.discover-button {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+.discover-button:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
+
+.content-sections {
+    display: flex;
+    justify-content: space-between; /* Align boxes in the same line */
+    margin-top: 40px;
+    gap: 5px; /* Small gap between boxes */
+}
+
+.section {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc(33.33% - 5px); /* Adjust width to account for gaps */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden; /* Prevent content overflow during animation */
+    transition: none; /* Remove hover effect */
+}
+
+.section i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section h3 {
+    margin: 10px 0;
+}
+
+.section p {
+    margin: 10px 0;
+    transition: height 0.5s ease;
+    overflow: hidden;
+}
+
+.section button.read-more {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.section button.read-more:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly lighter background on hover */
+}
+
+.hidden {
+    display: none;
+    height: 0;
+}
+
+@media (max-width: 768px) {
+    .content-sections {
+        flex-direction: column; /* Stack boxes vertically on smaller screens */
+        gap: 10px; /* Increase gap for better readability */
+    }
+
+    .section {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #87CEEB; /* Sky-blue footer background */
+    color: #fff; /* White footer text */
+}
